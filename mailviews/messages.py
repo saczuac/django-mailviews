@@ -32,7 +32,9 @@ class EmailMessageView(object):
         :rtype: dict
         """
         ctx = {}
-        return ctx.update(kwargs)
+        for key, value in kwargs.iteritems():
+            setattr(ctx, key, value)
+        return ctx
 
     def render_to_message(self, extra_context=None, **kwargs):
         """
