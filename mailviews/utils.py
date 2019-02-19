@@ -2,7 +2,6 @@ import textwrap
 from collections import namedtuple
 
 import django
-from django.template import Context
 from distutils.version import StrictVersion
 
 
@@ -30,16 +29,6 @@ def split_docstring(value):
 
 def unimplemented(*args, **kwargs):
     raise NotImplementedError
-
-
-def unescape(context):
-    """
-    Accepts a context object, returning a new context with autoescape off.
-
-    Useful for rendering plain-text templates without having to wrap the entire
-    template in an `{% autoescape off %}` tag.
-    """
-    return Context(context, autoescape=False)
 
 
 def is_django_version_greater(version):
